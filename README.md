@@ -13,9 +13,13 @@ Built with:
 🚀 Features
 
 ✅ Fetches webpage content and extracts only readable text
+
 ✅ Removes irrelevant HTML tags (scripts, styles, images, inputs)
+
 ✅ Uses AI to generate short, markdown-friendly summaries
+
 ✅ Simple CLI interface → run with just --url
+
 ✅ Modular design (separates fetcher and summarizer for reusability)
 
 ⚡ Installation
