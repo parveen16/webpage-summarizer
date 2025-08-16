@@ -1,6 +1,6 @@
 📰 Webpage Summarizer
 
-A lightweight Python tool that fetches any webpage, cleans the noise (ads, scripts, navigation menus), and generates a concise AI-powered summary in markdown.
+A lightweight Python tool that fetches any webpage, cleans the noise (ads, scripts, navigation menus), and generates a concise AI-powered summary.
 
 Built with:
 
