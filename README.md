@@ -24,13 +24,14 @@ Built with:
 
 ⚡ Installation
 
-Clone this repository:
+#Clone this repository:
 
 git clone https://github.com/your-username/webpage-summarizer.git
+
 cd webpage-summarizer
 
 
-Install dependencies:
+#Install dependencies:
 
 pip install -r requirements.txt
 
@@ -50,7 +51,7 @@ Output:
 
 === Summary ===
 
-# CNN News Highlights
+ CNN News Highlights
 - Breaking news coverage on global events
 - Featured sections on politics, economy, and tech
 - Live updates with multimedia content
