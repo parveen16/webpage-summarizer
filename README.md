@@ -1,5 +1,5 @@
 📰 Webpage Summarizer
-
+---------------------
 A lightweight Python tool that fetches any webpage, cleans the noise (ads, scripts, navigation menus), and generates a concise AI-powered summary.
 
 Built with:
@@ -23,25 +23,25 @@ Built with:
 ✅ Modular design (separates fetcher and summarizer for reusability)
 
 ⚡ Installation
-
-#Clone this repository:
+-------------------------------------
+1. Clone this repository:
 
 git clone https://github.com/your-username/webpage-summarizer.git
 
 cd webpage-summarizer
 
 
-#Install dependencies:
+2. Install dependencies:
 
 pip install -r requirements.txt
 
 
-Create a .env file in the root directory and add your OpenAI API key:
+3. Create a .env file in the root directory and add your OpenAI API key:
 
 OPENAI_API_KEY=sk-proj-xxxxxxxxxxxxxxxxxxxx
 
 🖥️ Usage
-
+----------------------------
 Run the summarizer with a URL:
 
 python openai_impl/summarizer.py --url "https://cnn.com"
@@ -65,3 +65,25 @@ Requests + BeautifulSoup (web scraping & cleaning)
 OpenAI GPT-4o-mini (AI summarization)
 
 dotenv (API key management)
+
+-------------------------------------------------
+
+Key Learning :
+
+Use direct summarization when:
+
+  -> Input is small (a single webpage/article).
+
+  -> You only need a short overview.
+
+Use FAISS (RAG approach) when:
+
+  -> Input is too big to fit in model context.
+
+  -> You need Q&A, searchable knowledge base, or multiple documents.
+
+Think of it like this:
+
+👉 Our current summarizer = one-shot summarizer.
+
+👉 FAISS approach = long-term memory + search engine for your documents.
