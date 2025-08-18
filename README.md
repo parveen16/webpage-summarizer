@@ -1,89 +1,97 @@
-📰 Webpage Summarizer
+🌐 Webpage Summarizer
 ---------------------
-A lightweight Python tool that fetches any webpage, cleans the noise (ads, scripts, navigation menus), and generates a concise AI-powered summary.
+A lightweight Python tool that fetches the content of any webpage and generates a clean, concise summary using Large Language Models (LLMs).
 
-Built with:
+This project demonstrates LLM integration in production-ready Python code, with support for both OpenAI API and Ollama (local LLMs).
 
-🌐 Requests + BeautifulSoup → Fetch and parse webpages
+✨ Features
+-----------
+📰 Fetch any webpage (removes HTML clutter, keeps only meaningful text).
 
-🤖 OpenAI GPT-4o-mini → Generate high-quality summaries
+🧠 Summarize content using either:
 
-⚙️ Python + CLI → Simple and flexible command-line interface
+└──OpenAI API (cloud-based LLMs)
 
-🚀 Features
+└──Ollama (local LLMs like llama3.2) via OpenAI-compatible API.
 
-✅ Fetches webpage content and extracts only readable text
+⚡ Command-line tool for quick summaries:
 
-✅ Removes irrelevant HTML tags (scripts, styles, images, inputs)
+python summarizer_openai.py --url https://example.com
 
-✅ Uses AI to generate short, markdown-friendly summaries
-
-✅ Simple CLI interface → run with just --url
-
-✅ Modular design (separates fetcher and summarizer for reusability)
-
-⚡ Installation
--------------------------------------
-1. Clone this repository:
-
-git clone https://github.com/your-username/webpage-summarizer.git
-
-cd webpage-summarizer
+python summarizer_ollama.py --url https://example.com
 
 
-2. Install dependencies:
+🔑 .env support for API keys (only required for OpenAI).
 
-pip install -r requirements.txt
+📂 Project Structure
+--------------
+webpage-summarizer/
+
+── openai_impl/
+
+   └── summarizer_openai.py
+   
+   └── webpage_fetcher.py
+   
+── ollama_impl/
+
+   └── summarizer_ollama.py
+   
+── .env
+
+── requirements.txt
+
+── README.md
+
+🚀 Getting Started
+-------------------
+1. Clone the repository
+   
+------>  *git clone https://github.com/your-username/webpage-summarizer.git*
+
+2. Navigate  to root folder
+------> *cd webpage-summarizer*
+
+3. Install dependencies
+   
+------> *pip install -r requirements.txt*
+
+4. Setup .env (for OpenAI only)
+
+------> Create a .env file in the project root:
+
+------> OPENAI_API_KEY=sk-proj-xxxxxxxx
+
+5. Run with OpenAI
+   
+------->   *python openai_impl/summarizer_openai.py --url https://example.com*
+
+6. Run with Ollama
+
+------->  Make sure Ollama is installed and running:
+
+------->  *ollama run llama3.2*
 
 
-3. Create a .env file in the root directory and add your OpenAI API key:
+Then run:
 
-OPENAI_API_KEY=sk-proj-xxxxxxxxxxxxxxxxxxxx
+------>  *python ollama_impl.summarizer_ollama.py --url https://example.com*
 
-🖥️ Usage
-----------------------------
-Run the summarizer with a URL:
+🧑‍💻 Key Learnings
+-----------------
+This project was not just about summarizing webpages — it was about learning how to integrate LLMs effectively.
 
-python openai_impl/summarizer.py --url "https://cnn.com"
+✅ LLM APIs are interchangeable:
+By abstracting the fetcher and summarizer, we can swap OpenAI with Ollama seamlessly.
 
+✅ Importance of modular design:
+Splitting into webpage_fetcher and summarizer makes the project extensible. Tomorrow, we could add FAISS for long-context retrieval, or another backend like Anthropic.
 
-Output:
+✅ OpenAI vs Ollama:
 
-=== Summary ===
+OpenAI → great for production-grade accuracy and cloud scalability.
 
- CNN News Highlights
-- Breaking news coverage on global events
-- Featured sections on politics, economy, and tech
-- Live updates with multimedia content
+Ollama → best for local experimentation, privacy, and cost-savings.
 
-🛠️ Tech Stack
-
-Python (CLI and modular design)
-
-Requests + BeautifulSoup (web scraping & cleaning)
-
-OpenAI GPT-4o-mini (AI summarization)
-
-dotenv (API key management)
-
--------------------------------------------------
-
-Key Learning :
-
-Use direct summarization when:
-
-  -> Input is small (a single webpage/article).
-
-  -> You only need a short overview.
-
-Use FAISS (RAG approach) when:
-
-  -> Input is too big to fit in model context.
-
-  -> You need Q&A, searchable knowledge base, or multiple documents.
-
-Think of it like this:
-
-👉 Our current summarizer = one-shot summarizer.
-
-👉 FAISS approach = long-term memory + search engine for your documents.
+✅ Error handling & validation:
+Learned to validate .env API keys and handle cases like missing/whitespace keys.
